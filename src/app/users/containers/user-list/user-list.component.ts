@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
-import { MatButtonModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-user-list',

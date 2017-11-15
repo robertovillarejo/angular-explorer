@@ -6,6 +6,9 @@ import { NameInitialsPipe } from './pipes/name-initials.pipe';
 import { RouterModule } from '@angular/router';
 import { UserDetailComponent } from './containers/user-detail/user-detail.component';
 import { UserProfileComponent } from './containers/user-profile/user-profile.component';
+import { MatFormFieldModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -19,7 +22,10 @@ import { UserProfileComponent } from './containers/user-profile/user-profile.com
         path: '', 
         component: UserListComponent
       }
-    ])
+    ]),
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule
   ],
   declarations: [UserCardComponent, UserListComponent, NameInitialsPipe, UserDetailComponent, UserProfileComponent]
 })
