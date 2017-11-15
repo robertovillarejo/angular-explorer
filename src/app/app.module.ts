@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { routes } from './routes';
 
 
 @NgModule({
@@ -10,7 +12,11 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,10 @@
+<table>
+  <thead>
+    <th>Ranking Actividades</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <app-user-card [fullName]="user.name" [stars]="user.stars"></app-user-card>
+    </tr>
+  </tbody>
+</table>
