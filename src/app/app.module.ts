@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 
 
 import { AppComponent } from './app.component';
 import { routes } from './routes';
+import {rootReducer } from './reducers';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { routes } from './routes';
     RouterModule.forRoot(
       routes,
       { enableTracing: true }
-    )
+    ),
+    StoreModule.forRoot(rootReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

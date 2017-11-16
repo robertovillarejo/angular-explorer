@@ -1,4 +1,7 @@
+import { IndexService } from './../../actions/index.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,7 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  frm: FormGroup;
+  password: string;
+  passwordConfirm: string;
+  
+
+  constructor(
+    private route: ActivatedRoute,
+    usersActions: IndexService
+  ) { 
+
+  }
 
   ngOnInit() {
   }

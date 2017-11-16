@@ -3,7 +3,7 @@
     <th>Ranking Actividades</th>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users" [routerLink]="['/users', user.name, 'profile']">
+    <tr *ngFor="let user of users$ | async" [routerLink]="['/users', user.name, 'profile']">
       <app-user-card [fullName]="user.name" [stars]="user.stars"></app-user-card>
     </tr>
   </tbody>

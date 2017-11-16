@@ -1,3 +1,4 @@
+import { IndexService } from './actions/index.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserCardComponent } from './components/user-card/user-card.component';
@@ -9,6 +10,9 @@ import { UserProfileComponent } from './containers/user-profile/user-profile.com
 import { MatFormFieldModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { StoreModule } from '@ngrx/store';
+
+import { reducers } from './reducers/index';
 
 @NgModule({
   imports: [
@@ -23,10 +27,14 @@ import { MatInputModule } from '@angular/material/input';
         component: UserListComponent
       }
     ]),
+    StoreModule.forFeature('users', reducers),
     MatFormFieldModule,
     FormsModule,
     MatInputModule
   ],
-  declarations: [UserCardComponent, UserListComponent, NameInitialsPipe, UserDetailComponent, UserProfileComponent]
+  declarations: [UserCardComponent, UserListComponent, NameInitialsPipe, UserDetailComponent, UserProfileComponent],
+  providers: [
+    IndexService
+  ]
 })
 export class UsersModule { }
