@@ -29,4 +29,8 @@ export class UserListComponent implements OnInit {
     this.usersActions.fetchAllUsers();
   }
 
+  searchUser(username: string) {
+    this.usersActions.searchByUserName(username);
+  }  
+
 }

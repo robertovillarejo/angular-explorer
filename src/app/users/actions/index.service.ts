@@ -7,6 +7,7 @@ import { User } from '../models/user';
 */
 export const LOAD_USERS = '[Users] Load';
 export const LOAD_USERS_SUCCESS = '[Users] Load Complete';
+export const SEARCH_USER_SUCCESS = '[Users] Search Complete';
 
 /*
   ACTION CREATORS
@@ -18,6 +19,11 @@ export class LoadUsers implements Action {
 export class LoadUsersSuccess implements Action {
   readonly type = LOAD_USERS_SUCCESS;
   constructor(public payload: Array<User>) {}
+}
+
+export class SearchUserSuccess implements Action {
+  readonly type = SEARCH_USER_SUCCESS;
+  constructor(public payload: string) {}
 }
 
 @Injectable()
@@ -39,6 +45,10 @@ export class IndexService {
   async fetchAllUsers() {
     this.store.dispatch(new LoadUsers());
     this.store.dispatch(new LoadUsersSuccess(this.users));
+  }
+
+  async searchByUserName(username: string) {
+    this.store.dispatch(new SearchUserSuccess(username));
   }
 
 }
