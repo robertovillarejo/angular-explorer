@@ -2,6 +2,7 @@
   <mat-form-field>
     <input matInput placeholder="Buscar...">
   </mat-form-field>
+  <button type="button" (click)="  sortUsersByStars()">Ordenar</button>
 </form>
 
 <table>
@@ -12,5 +13,6 @@
     <tr *ngFor="let user of users$ | async" [routerLink]="['/users', user.name, 'profile']">
       <app-user-card [fullName]="user.name" [stars]="user.stars"></app-user-card>
     </tr>
+    {{ (asc$ | async) ? "Ascendente": "Descendente" }}
   </tbody>
 </table>

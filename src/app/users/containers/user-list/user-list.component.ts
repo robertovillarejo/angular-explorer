@@ -17,6 +17,7 @@ import * as fromUsers from '../../reducers';
 export class UserListComponent implements OnInit {
 
   users$: Observable<Array<User>>;
+  asc$: Observable<boolean>;
 
   constructor(
     private store: Store<State>,
@@ -25,12 +26,16 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.users$ = this.store.select(fromUsers.getAllUsers);
-    this.users$.subscribe(console.log);
+    this.asc$ = this.store.select(fromUsers.getAsc);
     this.usersActions.fetchAllUsers();
   }
 
   searchUser(username: string) {
     this.usersActions.searchByUserName(username);
   }  
+
+  sortUsersByStars() {
+    this.usersActions.sortByStars();
+  }
 
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,7 +22,8 @@ import {rootReducer } from './reducers';
       routes,
       { enableTracing: true }
     ),
-    StoreModule.forRoot(rootReducer)
+    StoreModule.forRoot(rootReducer),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
